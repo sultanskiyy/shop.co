@@ -15,7 +15,6 @@ const HomePage = () => {
   const [count, setCount] = useState("Default")
   const [comments, setComments] = useState([])
 
-  // PRODUCTS
   const { data: products, isLoading } = useFetch({
     url: "products",
     key: ["products"],
@@ -38,7 +37,7 @@ const HomePage = () => {
     return (
       <div className="flex items-center justify-center min-h-screen bg-white">
         <img
-          src="../../../src/pages/img/Trail loading.gif"
+          src="/public/img/Trail loading.gif"
           alt="Loading..."
           className="w-32 h-32"
         />
@@ -88,7 +87,7 @@ const HomePage = () => {
 
           <div className="flex w-full lg:w-auto justify-center lg:justify-end mt-10 lg:mt-0">
             <img
-              src="../../../src/pages/img/Rectangle 2.png"
+              src="https://sapphireleather.com/cdn/shop/files/Rectangle_2_9e619e9d-663a-4288-ad5c-d4904c89e81f_1500x.png?v=1760274104"
               alt=""
               className="w-[260px] sm:w-[360px] lg:w-[520px] object-contain"
             />
@@ -99,11 +98,11 @@ const HomePage = () => {
 
       <section className="bg-black">
         <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-5 gap-6 py-8 px-6 place-items-center">
-          <img src="../../../src/pages/img/versace.png" alt="" />
-          <img src="../../../src/pages/img/zara.png" alt="" />
-          <img src="../../../src/pages/img/gucci-logo-1 1.png" alt="" />
-          <img src="../../../src/pages/img/prada-logo-1 1.png" alt="" />
-          <img src="../../../src/pages/img/CalvinKlein.png" alt="" />
+          <img src="/public/img/versace.png" alt="" />
+          <img src="/public/img/zara.png" alt="" />
+          <img src="/public/img/gucci-logo-1 1.png" alt="" />
+          <img src="/public/img/prada-logo-1 1.png" alt="" />
+          <img src="/public/img/CalvinKlein.png" alt="" />
         </div>
       </section>
 
@@ -149,7 +148,7 @@ const HomePage = () => {
 
               <div className="bg-white rounded-2xl overflow-hidden h-65 flex items-center justify-center">
                 <img
-                  src="../../../src/pages/img/Frame 61.png"
+                  src="/public/img/Frame 61.png"
                   alt="Casual"
                   className="object-contain"
                 />
@@ -157,7 +156,7 @@ const HomePage = () => {
 
               <div className="bg-white rounded-2xl overflow-hidden h-65 md:col-span-2 flex items-center justify-center">
                 <img
-                  src="../../../src/pages/img/Frame 62.png"
+                  src="/public/img/Frame 62.png"
                   alt="Formal"
                   className="object-contain"
                 />
@@ -165,7 +164,7 @@ const HomePage = () => {
 
               <div className="bg-white rounded-2xl overflow-hidden h-65 md:col-span-2 flex items-center justify-center">
                 <img
-                  src="../../../src/pages/img/Frame 64.png"
+                  src="/public/img/Frame 64.png"
                   alt="Party"
                   className="object-contain"
                 />
@@ -173,7 +172,7 @@ const HomePage = () => {
 
               <div className="bg-white rounded-2xl overflow-hidden h-65 flex items-center justify-center">
                 <img
-                  src="../../../src/pages/img/Frame 63.png"
+                  src="/public/img/Frame 63.png"
                   alt="Gym"
                   className="object-contain"
                 />
