@@ -37,7 +37,7 @@ const HomePage = () => {
     return (
       <div className="flex items-center justify-center min-h-screen bg-white">
         <img
-          src="/public/assets/img/loading.gif"
+          src="/assets/img/loading.gif"
           alt="Loading..."
           className="w-32 h-32"
         />
@@ -148,7 +148,7 @@ const HomePage = () => {
 
               <div className="bg-white rounded-2xl overflow-hidden h-65 flex items-center justify-center">
                 <img
-                  src="/public/assets/img/casual.png"
+                  src="/assets/img/casual.png"
                   alt="Casual"
                   className="object-contain"
                 />
@@ -156,7 +156,7 @@ const HomePage = () => {
 
               <div className="bg-white rounded-2xl overflow-hidden h-65 md:col-span-2 flex items-center justify-center">
                 <img
-                  src="/public/assets/img/formal.png"
+                  src="/assets/img/formal.png"
                   alt="Formal"
                   className="object-contain"
                 />
@@ -164,7 +164,7 @@ const HomePage = () => {
 
               <div className="bg-white rounded-2xl overflow-hidden h-65 md:col-span-2 flex items-center justify-center">
                 <img
-                  src="/public/assets/img/party.png"
+                  src="/assets/img/party.png"
                   alt="Party"
                   className="object-contain"
                 />
@@ -172,7 +172,7 @@ const HomePage = () => {
 
               <div className="bg-white rounded-2xl overflow-hidden h-65 flex items-center justify-center">
                 <img
-                  src="/public/assets/img/gym.png"
+                  src="/assets/img/gym.png"
                   alt="Gym"
                   className="object-contain"
                 />
