@@ -98,11 +98,11 @@ const HomePage = () => {
 
       <section className="bg-black">
         <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-5 gap-6 py-8 px-6 place-items-center">
-          <img src="/public/assets/img/versace.png" alt="Versace" />
-          <img src="/public/assets/img/zara.png" alt="Zara" />
-          <img src='/public/assets/img/gucci.png' alt="Gucci" />
-          <img src='/public/assets/img/prada.png' alt="Prada" />
-          <img src="/public/assets/img/CalvinKlein.png" alt="Calvin Klein" />
+          <img src="/assets/img/versace.png" alt="Versace" />
+          <img src="/assets/img/zara.png" alt="Zara" />
+          <img src='/assets/img/gucci.png' alt="Gucci" />
+          <img src='/assets/img/prada.png' alt="Prada" />
+          <img src="/assets/img/CalvinKlein.png" alt="Calvin Klein" />
         </div>
       </section>
 
