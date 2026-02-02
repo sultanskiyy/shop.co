@@ -1,49 +1,55 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
+
+const getInitialCart = () => {
+    if (typeof window !== "undefined") {
+        return JSON.parse(localStorage.getItem("cart") || "[]");
+    }
+    return [];
+};
 
 const initialState = {
-    cart:JSON.parse(localStorage.getItem("cart")|| "[]") 
-}
+    cart: getInitialCart(),
+};
 
 const cartSlice = createSlice({
     name: "cart",
     initialState,
     reducers: {
         addToCart: (state, action) => {
-            state.cart.push({ ...action.payload, qty: 1 })
-            localStorage.setItem("cart", JSON.stringify(state.cart))
+            state.cart.push({ ...action.payload, qty: 1 });
+            if (typeof window !== "undefined") {
+                localStorage.setItem("cart", JSON.stringify(state.cart));
+            }
         },
         increase: (state, action) => {
-            state.cart = state.cart.map((el) => {
-                if (el.id === action.payload) {
-                    return { ...el, qty: el.qty + 1 }
-                } else {
-                    return el
-                }
-            })
-            localStorage.setItem("cart", JSON.stringify(state.cart))
+            state.cart = state.cart.map((el) =>
+                el.id === action.payload ? { ...el, qty: el.qty + 1 } : el
+            );
+            if (typeof window !== "undefined") {
+                localStorage.setItem("cart", JSON.stringify(state.cart));
+            }
         },
         decrease: (state, action) => {
-            let item = state.cart.find((el) => el.id === action.payload);
+            const item = state.cart.find((el) => el.id === action.payload);
             if (item.qty > 1) {
-                state.cart = state.cart?.map((el) => {
-                    if (el.id === action.payload) {
-                        return { ...el, qty: el.qty - 1 }
-                    } else {
-                        return el
-                    }
-                })
+                state.cart = state.cart.map((el) =>
+                    el.id === action.payload ? { ...el, qty: el.qty - 1 } : el
+                );
             } else {
-                state.cart = state.cart.filter((el) => el.id !== action.payload)
+                state.cart = state.cart.filter((el) => el.id !== action.payload);
             }
-            localStorage.setItem("cart", JSON.stringify(state.cart))
+            if (typeof window !== "undefined") {
+                localStorage.setItem("cart", JSON.stringify(state.cart));
+            }
         },
         deleteProduct: (state, action) => {
-            state.cart = state.cart.filter((el) => el.id !== action.payload)
-            localStorage.setItem("cart", JSON.stringify(state.cart))
-        }
-    }
-})
+            state.cart = state.cart.filter((el) => el.id !== action.payload);
+            if (typeof window !== "undefined") {
+                localStorage.setItem("cart", JSON.stringify(state.cart));
+            }
+        },
+    },
+});
 
-export const { addToCart, increase, decrease , deleteProduct } = cartSlice.actions
-
-export default cartSlice.reducer
+export const { addToCart, increase, decrease, deleteProduct } = cartSlice.actions;
+export default cartSlice.reducer;
