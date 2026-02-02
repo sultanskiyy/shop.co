@@ -46,7 +46,7 @@ const Footer = () => {
 
                         <button
                             onClick={handleSubscribe}
-                            className="bg-white text-black px-6 py-3 rounded-full text-sm font-medium w-full"
+                            className="bg-white cursor-pointer text-black px-6 py-3 rounded-full text-sm font-medium w-full"
                         >
                             Subscribe to Newsletter
                         </button>

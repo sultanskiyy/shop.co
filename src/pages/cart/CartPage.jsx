@@ -90,7 +90,7 @@ const CartPage = () => {
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-20 h-24 object-contain bg-gray-100 rounded-lg p-2"
+                      className="w-20 h-24 cursor-pointer hover:scale-105 duration-300 object-contain bg-gray-100 rounded-lg p-2"
                     />
 
                     <div>
@@ -126,17 +126,17 @@ const CartPage = () => {
                   <div className="flex flex-col items-end justify-between">
                     <button
                       onClick={() => dispatch(deleteProduct(item.id))}
-                      className="text-red-500 hover:text-red-700"
+                      className="text-red-500 cursor-pointer hover:text-red-700"
                     >
                       <MdOutlineDelete size={20} />
                     </button>
 
-                    <div className="bg-gray-100 rounded-full px-3 py-1 w-24 flex items-center justify-between">
+                    <div className="bg-gray-100 cursor-pointer rounded-full px-3 py-1 w-24 flex items-center justify-between">
                       <button onClick={() => dispatch(decrease(item.id))}>
                         −
                       </button>
                       <span>{item.qty}</span>
-                      <button onClick={() => dispatch(increase(item.id))}>
+                      <button className='cursor-pointer' onClick={() => dispatch(increase(item.id))}>
                         +
                       </button>
                     </div>
@@ -200,7 +200,7 @@ const CartPage = () => {
                       setPromoApplied(false)
                     }
                   }}
-                  className="bg-black text-white px-6 rounded-full text-sm"
+                  className="bg-black cursor-pointer text-white px-6 rounded-full text-sm"
                 >
                   Apply
                 </button>
@@ -208,7 +208,7 @@ const CartPage = () => {
 
               <button
                 onClick={() => toast.success('Buyurtma qabul qilindi')}
-                className="w-full bg-black text-white py-4 rounded-full mt-6 text-sm font-medium"
+                className="w-full bg-black cursor-pointer text-white py-4 rounded-full mt-6 text-sm font-medium"
               >
                 Go to Checkout →
               </button>

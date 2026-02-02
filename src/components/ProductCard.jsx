@@ -15,7 +15,7 @@ const ProductCard = ({ image, title, price, rating, id }) => {
                 <img
                     src={image}
                     alt={title}
-                    className="h-full w-full py-4 px-4 object-contain"
+                    className="h-full cursor-pointer w-full hover:transform hover:scale-110 duration-300 py-4 px-4 object-contain"
                 />
             </div>
             <div className="flex flex-col gap-2 mt-3">

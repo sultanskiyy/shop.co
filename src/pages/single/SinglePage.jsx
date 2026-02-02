@@ -48,7 +48,6 @@ const SinglePage = () => {
         </p>
 
         <div className="flex flex-col lg:flex-row gap-12">
-          {/* Images */}
           <div className="flex gap-6">
             <div className="flex flex-col gap-4">
               {[1, 2, 3].map((_, i) => (
@@ -59,7 +58,7 @@ const SinglePage = () => {
                   <img
                     src={singleProduct?.image}
                     alt="preview"
-                    className="w-full h-full object-contain p-2"
+                    className="w-full cursor-pointer h-full object-contain p-2"
                   />
                 </div>
               ))}
@@ -69,18 +68,16 @@ const SinglePage = () => {
               <img
                 src={singleProduct?.image}
                 alt={singleProduct?.title}
-                className="w-full h-full object-contain p-6"
+                className="w-full cursor-pointer h-full object-contain p-6"
               />
             </div>
           </div>
 
-          {/* Content */}
           <div className="flex-1">
             <h1 className="text-[32px] font-extrabold">
               {singleProduct?.title}
             </h1>
 
-            {/* Rating */}
             <div className="flex items-center gap-2">
               <div className="flex">
                 {[...Array(5)].map((_, i) => {
@@ -128,7 +125,7 @@ const SinglePage = () => {
                   <button
                     key={index}
                     onClick={() => setSelectedColor(index)}
-                    className={`w-9 h-9 rounded-full flex items-center justify-center
+                    className={`w-9 h-9 rounded-full cursor-pointer flex items-center justify-center
                       ${selectedColor === index ? 'ring-2 ring-black' : ''}`}
                     style={{ backgroundColor: color }}
                   >
@@ -149,7 +146,7 @@ const SinglePage = () => {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`px-5 py-2 rounded-full text-sm
+                    className={`px-5 py-2 cursor-pointer rounded-full text-sm
                       ${selectedSize === size
                         ? 'bg-black text-white'
                         : 'bg-gray-100 text-gray-600'
@@ -169,7 +166,7 @@ const SinglePage = () => {
 
                 <button
                   onClick={() => dispatch(decrease(singleProduct?.id))}
-                  className="text-xl font-bold select-none"
+                  className="text-xl cursor-pointer font-bold select-none"
                 >
                   −
                 </button>
@@ -180,11 +177,11 @@ const SinglePage = () => {
 
                 <button
                   onClick={() => dispatch(increase(singleProduct?.id))}
-                  className="text-xl font-bold select-none"
+                  className="text-xl cursor-pointer font-bold select-none"
                 >
                   +
                 </button>
-              </div> : <button onClick={() => dispatch(addToCart(singleProduct))} className="w-full bg-black text-white py-3 rounded-full">
+              </div> : <button onClick={() => dispatch(addToCart(singleProduct))} className="w-full cursor-pointer bg-black text-white py-3 rounded-full">
                 Add to Cart
               </button>
             }

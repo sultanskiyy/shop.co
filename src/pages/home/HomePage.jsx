@@ -74,23 +74,23 @@ const HomePage = () => {
       <section className="bg-[#F2F0F1] w-full">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-start lg:items-end justify-between px-4 sm:px-6 py-10 lg:py-0">
 
-          <div className="max-w-full text-center pb-20 lg:text-left">
-            <h1 className="font-black uppercase text-[36px] sm:text-[48px] lg:text-[72px] leading-[1.05] pb-4">
+          <div className="max-w-full text-center lg:text-left">
+            <h1 className="font-black uppercase text-[36px] sm:text-[42px] lg:text-[72px] leading-[1.05] pb-4">
               FIND CLOTHES <br />
               THAT MATCHES <br />
               YOUR STYLE
             </h1>
 
-            <p className="text-[14px] sm:text-[17px] pb-6 leading-7 text-gray-600">
+            <p className="text-[14px] sm:text-[17px] pb-2 leading-7 text-gray-600">
               Browse through our diverse range of meticulously crafted garments,
               designed <br /> to bring out your individuality and cater to your sense of style.
             </p>
 
-            <button className="bg-black text-white px-16 py-3 rounded-full text-sm font-medium mb-10">
+            <button className="bg-black text-white px-16 py-3 rounded-full text-sm font-medium mb-5">
               Shop Now
             </button>
 
-            <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-6 mb-5 sm:gap-10 items-center lg:justify-start">
               <div>
                 <p className="font-semibold text-[32px] lg:text-[42px]">
                   <Counter target={200} />
@@ -118,14 +118,13 @@ const HomePage = () => {
             <img
               src="https://sapphireleather.com/cdn/shop/files/Rectangle_2_9e619e9d-663a-4288-ad5c-d4904c89e81f_1500x.png?v=1760274104"
               alt=""
-              className="w-65 sm:w-90 lg:w-130 object-contain"
+              className="w-65 h-130 sm:w-90 lg:w-130 object-contain"
             />
           </div>
 
         </div>
       </section>
 
-      {/* BRAND MARQUEE */}
       <section className="bg-black py-8">
         <marquee behavior="scroll" direction="left" scrollAmount="10">
           <div className="flex items-center gap-20">
@@ -157,7 +156,7 @@ const HomePage = () => {
 
               <button
                 onClick={() => viweMore(category)}
-                className="mx-auto block mt-6 px-6 py-2 rounded-full border text-sm"
+                className="mx-auto cursor-pointer block mt-6 px-6 py-2 rounded-full border text-sm"
               >
                 {category === count ? "View Less" : "View More"}
               </button>
