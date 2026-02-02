@@ -96,15 +96,18 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="bg-black">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-5 gap-6 py-8 px-6 place-items-center">
-          <img src="/assets/img/versace.png" alt="Versace" />
-          <img src="/assets/img/zara.png" alt="Zara" />
-          <img src='/assets/img/gucci.png' alt="Gucci" />
-          <img src='/assets/img/prada.png' alt="Prada" />
-          <img src="/assets/img/CalvinKlein.png" alt="Calvin Klein" />
-        </div>
+      <section className="bg-black py-8">
+        <marquee behavior="scroll" direction="center" scrollAmount="10">
+          <div className="flex items-center gap-20">
+            <img src="/assets/img/versace.png" alt="Versace" className="h-10" />
+            <img src="/assets/img/zara.png" alt="Zara" className="h-10" />
+            <img src="/assets/img/gucci.png" alt="Gucci" className="h-10" />
+            <img src="/assets/img/prada.png" alt="Prada" className="h-10" />
+            <img src="/assets/img/CalvinKlein.png" alt="Calvin Klein" className="h-10" />
+          </div>
+        </marquee>
       </section>
+
 
       <section className="mb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
