@@ -11,6 +11,29 @@ import { FaStar, FaCheckCircle } from "react-icons/fa"
 import { MdOutlineNavigateNext } from "react-icons/md"
 import { GrFormPrevious } from "react-icons/gr"
 
+const Counter = ({ target, duration = 2000 }) => {
+  const [count, setCount] = useState(0)
+
+  useEffect(() => {
+    let start = 0
+    const step = Math.max(1, Math.floor(target / (duration / 16)))
+
+    const interval = setInterval(() => {
+      start += step
+      if (start >= target) {
+        setCount(target)
+        clearInterval(interval)
+      } else {
+        setCount(start)
+      }
+    }, 16)
+
+    return () => clearInterval(interval)
+  }, [target, duration])
+
+  return <>{count.toLocaleString()}+</>
+}
+
 const HomePage = () => {
   const [count, setCount] = useState("Default")
   const [comments, setComments] = useState([])
@@ -69,17 +92,23 @@ const HomePage = () => {
 
             <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 items-center lg:justify-start">
               <div>
-                <p className="font-semibold text-[32px] lg:text-[42px]">200+</p>
+                <p className="font-semibold text-[32px] lg:text-[42px]">
+                  <Counter target={200} />
+                </p>
                 <p className="text-gray-600 text-sm">International Brands</p>
               </div>
 
               <div className="sm:px-10 sm:border-x-2 border-gray-300">
-                <p className="font-semibold text-[32px] lg:text-[42px]">2,000+</p>
+                <p className="font-semibold text-[32px] lg:text-[42px]">
+                  <Counter target={2000} />
+                </p>
                 <p className="text-gray-600 text-sm">High-Quality Products</p>
               </div>
 
               <div>
-                <p className="font-semibold text-[32px] lg:text-[42px]">30,000+</p>
+                <p className="font-semibold text-[32px] lg:text-[42px]">
+                  <Counter target={30000} />
+                </p>
                 <p className="text-gray-600 text-sm">Happy Customers</p>
               </div>
             </div>
@@ -89,15 +118,16 @@ const HomePage = () => {
             <img
               src="https://sapphireleather.com/cdn/shop/files/Rectangle_2_9e619e9d-663a-4288-ad5c-d4904c89e81f_1500x.png?v=1760274104"
               alt=""
-              className="w-[260px] sm:w-[360px] lg:w-[520px] object-contain"
+              className="w-65 sm:w-90 lg:w-130 object-contain"
             />
           </div>
 
         </div>
       </section>
 
+      {/* BRAND MARQUEE */}
       <section className="bg-black py-8">
-        <marquee behavior="scroll" direction="center" scrollAmount="10">
+        <marquee behavior="scroll" direction="left" scrollAmount="10">
           <div className="flex items-center gap-20">
             <img src="/assets/img/versace.png" alt="Versace" className="h-10" />
             <img src="/assets/img/zara.png" alt="Zara" className="h-10" />
@@ -107,7 +137,6 @@ const HomePage = () => {
           </div>
         </marquee>
       </section>
-
 
       <section className="mb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -120,9 +149,7 @@ const HomePage = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {(category === count
                   ? products.filter((p) => p.category === category)
-                  : products
-                    .filter((p) => p.category === category)
-                    .slice(0, 4)
+                  : products.filter((p) => p.category === category).slice(0, 4)
                 ).map((el) => (
                   <ProductCard key={el.id} {...el} />
                 ))}
@@ -139,7 +166,7 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="py-20">
+      <section className="py-7">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="bg-[#F2F0F1] rounded-[40px] p-10">
 
@@ -195,8 +222,12 @@ const HomePage = () => {
             </h2>
 
             <div className="flex gap-3">
-              <button className="swiper-prev px-5 py-2 rounded-full border text-sm"><GrFormPrevious /></button>
-              <button className="swiper-next px-5 py-2 rounded-full border text-sm"><MdOutlineNavigateNext /></button>
+              <button className="swiper-prev px-5 py-2 rounded-full border text-sm">
+                <GrFormPrevious />
+              </button>
+              <button className="swiper-next px-5 py-2 rounded-full border text-sm">
+                <MdOutlineNavigateNext />
+              </button>
             </div>
           </div>
 
@@ -214,7 +245,6 @@ const HomePage = () => {
             {comments.map((c) => (
               <SwiperSlide key={c.id}>
                 <div className="bg-white p-6 rounded-xl border h-full">
-
                   <div className="flex justify-between mb-2">
                     <h3 className="font-semibold text-sm">{c.name}</h3>
                     {c.verified && <FaCheckCircle className="text-green-500" />}
@@ -225,10 +255,16 @@ const HomePage = () => {
                       <FaStar
                         key={i}
                         size={14}
-                        className={i <= Math.round(c.rating) ? "text-yellow-400" : "text-gray-300"}
+                        className={
+                          i <= Math.round(c.rating)
+                            ? "text-yellow-400"
+                            : "text-gray-300"
+                        }
                       />
                     ))}
-                    <span className="text-xs text-gray-500 ml-1">{c.rating}/5</span>
+                    <span className="text-xs text-gray-500 ml-1">
+                      {c.rating}/5
+                    </span>
                   </div>
 
                   <p className="text-sm text-gray-600 mb-4 line-clamp-4">

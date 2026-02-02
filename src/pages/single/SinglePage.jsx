@@ -1,8 +1,12 @@
 import React, { useState } from 'react'
 import { NavLink, useParams } from 'react-router-dom'
 import useFetch from '../../hooks/useFetch'
+import { useDispatch, useSelector } from 'react-redux'
+import { addToCart, decrease, increase } from '../../app/cartSlice'
 
 const SinglePage = () => {
+  const cart = useSelector((state) => state.cart)
+  const dispatch = useDispatch()
   const { id } = useParams()
 
   const { data, isLoading, isFetching } = useFetch({
@@ -117,7 +121,6 @@ const SinglePage = () => {
 
             <hr className="mb-6" />
 
-            {/* Colors */}
             <div className="mb-6">
               <p className="text-sm font-medium mb-1">Select Colors</p>
               <div className="flex gap-4">
@@ -139,7 +142,6 @@ const SinglePage = () => {
 
             <hr className="mb-3" />
 
-            {/* Sizes */}
             <div className="mb-6">
               <p className="text-sm font-medium mb-3">Choose Size</p>
               <div className="flex gap-3">
@@ -161,10 +163,31 @@ const SinglePage = () => {
 
             <hr className="mb-6" />
 
-            {/* Add to Cart (only button) */}
-            <button className="w-full bg-black text-white py-3 rounded-full">
-              Add to Cart
-            </button>
+            {
+              cart?.find((el) => el.id === singleProduct.id) ? <div className="w-full bg-gray-100 rounded-full py-3 pt-2 px-6 
+                flex items-center justify-between">
+
+                <button
+                  onClick={() => dispatch(decrease(singleProduct?.id))}
+                  className="text-xl font-bold select-none"
+                >
+                  −
+                </button>
+
+                <span className="font-medium text-lg">
+                  {cart?.find((el) => el.id === singleProduct?.id)?.qty}
+                </span>
+
+                <button
+                  onClick={() => dispatch(increase(singleProduct?.id))}
+                  className="text-xl font-bold select-none"
+                >
+                  +
+                </button>
+              </div> : <button onClick={() => dispatch(addToCart(singleProduct))} className="w-full bg-black text-white py-3 rounded-full">
+                Add to Cart
+              </button>
+            }
           </div>
         </div>
       </div>

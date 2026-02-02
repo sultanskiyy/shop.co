@@ -4,9 +4,13 @@ import { FiShoppingCart } from "react-icons/fi"
 import { CgProfile } from "react-icons/cg"
 import { IoSearch } from "react-icons/io5"
 import { HiMenu, HiX } from "react-icons/hi"
+import { useSelector } from "react-redux"
 
 
 const Header = () => {
+
+    const cart = useSelector((state) => state.cart)
+
     const [open, setOpen] = useState(false)
 
     return (
@@ -14,7 +18,6 @@ const Header = () => {
             <header className="fixed top-0 left-0 w-full z-50 bg-white ">
                 <div className="max-w-7xl mx-auto flex items-center px-6 py-4 gap-8">
 
-                    {/* LOGO */}
                     <div className="flex items-center gap-3">
                         <button
                             className="lg:hidden text-2xl"
@@ -28,16 +31,14 @@ const Header = () => {
                         </h1>
                     </div>
 
-                    {/* NAV LINKS — DESKTOP */}
                     <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
-                        <NavLink className="hover:text-gray-500">Shop</NavLink>
+                        <NavLink to={"/filter"} className="hover:text-gray-500">Shop</NavLink>
                         <NavLink className="hover:text-gray-500">On Sale</NavLink>
                         <NavLink className="hover:text-gray-500">New Arrivals</NavLink>
                         <NavLink className="hover:text-gray-500">Brands</NavLink>
                     </nav>
 
-                    {/* SEARCH */}
-                    <div className="hidden lg:block relative flex-1 max-w-md">
+                    <div className="hidden lg:block relative flex-1 max-w-3xl">
                         <input
                             type="text"
                             placeholder="Search for products..."
@@ -48,10 +49,17 @@ const Header = () => {
                         </span>
                     </div>
 
-                    {/* ICONS */}
                     <div className="ml-auto flex items-center gap-4 text-xl">
                         <IoSearch className="lg:hidden" />
-                        <FiShoppingCart />
+                        <NavLink to="/cart" className="relative inline-block">
+                            <FiShoppingCart className="text-xl" />
+
+                            <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs 
+                   flex items-center justify-center p-1 px-2 w-2 h-4 text-center rounded-full">
+                                {cart?.length}
+                            </span>
+                        </NavLink>
+
                         <CgProfile />
                     </div>
                 </div>
