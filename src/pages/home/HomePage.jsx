@@ -35,7 +35,7 @@ const HomePage = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-white">
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-white min-h-screen">
         <img
           src="/assets/img/loading.gif"
           alt="Loading..."
