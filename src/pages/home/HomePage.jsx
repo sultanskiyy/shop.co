@@ -114,7 +114,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className="flex w-full lg:w-auto justify-center lg:justify-end mt-10 lg:mt-0">
+          <div className="flex w-full lg:w-auto justify-center lg:justify-end -mt-18 -mb-42.5 lg:mb-0 lg:mt-0">
             <img
               src="https://sapphireleather.com/cdn/shop/files/Rectangle_2_9e619e9d-663a-4288-ad5c-d4904c89e81f_1500x.png?v=1760274104"
               alt=""
@@ -145,7 +145,7 @@ const HomePage = () => {
                 {category.toUpperCase()}
               </h1>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+              <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {(category === count
                   ? products.filter((p) => p.category === category)
                   : products.filter((p) => p.category === category).slice(0, 4)

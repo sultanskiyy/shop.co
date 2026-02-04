@@ -11,10 +11,8 @@ const Footer = () => {
             return
         }
 
-        // Email client ochiladi
         window.location.href = `mailto:support@shop.co?subject=Newsletter Subscription&body=Email: ${email}`
 
-        // Success message
         setSuccess(true)
         setEmail("")
 
@@ -26,7 +24,6 @@ const Footer = () => {
     return (
         <footer className="bg-[#F2F0F1] mt-27 pt-16">
 
-            {/* ===== TOP SUBSCRIBE CARD ===== */}
             <div className="max-w-7xl w-full mx-auto -mt-35 px-4 sm:px-6">
                 <div className="bg-black rounded-2xl px-8 py-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
 
@@ -34,8 +31,7 @@ const Footer = () => {
                         STAY UP TO DATE ABOUT <br /> OUR LATEST OFFERS
                     </h2>
 
-                    {/* INPUT + BUTTON */}
-                    <div className="flex flex-col gap-4 w-full sm:w-[420px]">
+                    <div className="flex flex-col gap-4 w-full sm:w-105">
                         <input
                             type="email"
                             placeholder="Enter your email address"
@@ -61,11 +57,9 @@ const Footer = () => {
                 </div>
             </div>
 
-            {/* ===== MAIN FOOTER ===== */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-16 pb-10">
                 <div className="lg:grid lg:grid-cols-6 gap-10">
 
-                    {/* BRAND */}
                     <div className="lg:col-span-2">
                         <h1 className="text-2xl font-extrabold mb-4">SHOP.CO</h1>
                         <p className="text-gray-600 text-sm mb-4 max-w-xs">
@@ -89,7 +83,6 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* COMPANY */}
                     <div>
                         <h3 className="text-sm font-semibold mb-4">COMPANY</h3>
                         <ul className="space-y-2 cursor-pointer text-sm text-gray-600">
@@ -100,7 +93,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* HELP */}
                     <div>
                         <h3 className="text-sm font-semibold mb-4">HELP</h3>
                         <ul className="space-y-2 cursor-pointer text-sm text-gray-600">
@@ -111,7 +103,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* FAQ */}
                     <div>
                         <h3 className="text-sm font-semibold mb-4">FAQ</h3>
                         <ul className="space-y-2 cursor-pointer text-sm text-gray-600">
@@ -122,7 +113,6 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* RESOURCES */}
                     <div>
                         <h3 className="text-sm font-semibold mb-4">RESOURCES</h3>
                         <ul className="space-y-2 cursor-pointer text-sm text-gray-600">
@@ -135,7 +125,6 @@ const Footer = () => {
 
                 </div>
 
-                {/* ===== BOTTOM BAR ===== */}
                 <div className="border-t border-gray-300 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <p className="text-sm text-gray-500">
                         Shop.co © 2000-2023, All Rights Reserved
